@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Imenik.Views.PrikazKontaktaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Imenik.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="430" Background="#2196F3">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="2" Grid.RowSpan="3"  Margin="15 0 10 0"
+                      VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.RowSpan="2">
+                    <StackPanel.Resources>
+                        <Style x:Key="Text" TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Margin" Value="0 10 0 0" />
+                        </Style>
+                        <Style x:Key="PrimaryText" BasedOn="{StaticResource Text}" TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontSize" Value="34" />
+                        </Style>
+                        <Style x:Key="SecondaryText" BasedOn="{StaticResource Text}" TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#BBDEFB" />
+                            <Setter Property="FontSize" Value="26" />
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <!-- Slika i ime-->
+
+                    <Grid>
+                        <Ellipse Width="150" Height="150" Margin="0 20 0 0" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Ikonice/person.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Width="150" Height="150" Margin="0 20 0 0" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding  IzabraniKontakt.ImgPutanja}" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                            <Ellipse.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Gray" ShadowDepth="0"/>
+                            </Ellipse.Effect>
+                        </Ellipse>
+                    </Grid>
+                    <TextBlock Text="{Binding  IzabraniKontakt.PunoIme, Mode=OneWay}" FontSize="45" TextWrapping="Wrap" TextAlignment="Center"       
+                           HorizontalAlignment="Center" Width="Auto" Margin="0 0 0 20"/>
+
+                    <!-- Informacije -->
+
+                    <TextBlock Text="Broj telefona" Style="{StaticResource PrimaryText}"/>
+
+                    <TextBlock Text="{Binding IzabraniKontakt.BrojTelefona}" Style="{StaticResource SecondaryText}"/>
+
+                    <TextBlock Text="E-posta" Style="{StaticResource PrimaryText}"/>
+
+                    <TextBlock Text="{Binding IzabraniKontakt.EPosta}" Style="{StaticResource SecondaryText}"/>
+
+                    <TextBlock Text="Adresa" Style="{StaticResource PrimaryText}"/>
+
+                    <TextBlock Text="{Binding IzabraniKontakt.Adresa}" Style="{StaticResource SecondaryText}"/>
+
+
+                </StackPanel>
+                <StackPanel  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+                    <Button  Margin="10" Height="40" Background="Transparent" BorderThickness="0"
+                              Command="{Binding IzmeniKomanda}">
+                        <Image Source="/Ikonice/edit.png" />
+
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="5" Color="Gray" ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
+
+                    <Button Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right"
+                        Margin="10" Height="40" Background="Transparent" BorderThickness="0" 
+                             Command="{Binding ObrisiKomanda}">
+                        <Image Source="/Ikonice/delete.png" />
+
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="5" Color="Gray" ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
+
+                </StackPanel >
+                <CheckBox  Style="{StaticResource OmiljeniCheckbox}" Command="{Binding OmiljeniKomanda}" Margin="0,29,364.6,36" RenderTransformOrigin="0.5,0.5">
+
+                </CheckBox>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

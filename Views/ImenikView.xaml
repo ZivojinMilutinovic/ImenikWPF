@@ -1,0 +1,80 @@
+﻿<Window x:Class="Imenik.Views.ImenikView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:viewmodels="clr-namespace:Imenik.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:ImenikViewModel}"
+        mc:Ignorable="d"
+        Title="ImenikView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="0" Grid.Row="1" Height="50"
+                   Background="#2196F3">
+            
+                <Button Margin="10 0" Height="40"  Width="40"
+                         Background="White"
+                         BorderThickness="0"
+                         Command="{Binding UcitajKontakteKomanda}">
+                           <Image Source="/Ikonice/person.png"/>
+                </Button>
+                <Button Margin="10 0" Height="40"  Width="40"
+                         Background="White"
+                         BorderThickness="0"
+                         Command="{Binding UcitajOmiljeneKomanda}">
+                           <Image Source="/Ikonice/star.png"/>
+                </Button>
+            
+                <Button HorizontalAlignment="Right" Margin="10 0"
+                        Height="40"  Width="40"
+                        Background="White"
+                        BorderThickness="0"
+                        Command="{Binding DodajKomanda}">
+                            <Image Source="/Ikonice/plus.png"/>
+                </Button>
+        </DockPanel>
+        <ListView Grid.Column="0" Grid.Row="2"  
+                  Margin="0,0.4,0.4,0" 
+                  ItemsSource="{Binding Kontakti}"
+                  SelectedItem="{Binding IzabraniKontakt}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Ellipse Height="50" Width="50" Margin="0 5 10 5">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Ikonice/person.png" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Height="50" Width="50" Margin="0 5 10 5">
+                                <!--<Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding ImgPutanja}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>-->
+                            </Ellipse>
+                        </Grid>
+                        <TextBlock Text="{Binding PunoIme}"
+                                   VerticalAlignment="Center"
+                                   Foreground="#212121"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Frame Grid.Column="2" Grid.RowSpan="3"
+               Background="#2196F3">
+            <Frame.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" ShadowDepth="0"/>
+            </Frame.Effect>
+        </Frame>
+
+        <ContentControl Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Content="{Binding TrenutniPrikaz}"/>
+    </Grid>
+   
+</Window>

@@ -1,0 +1,35 @@
+[
+  {
+    "Id": "ada9cf76-46e1-4c3e-beb1-84161b326541",
+    "Ime": "Mladen",
+    "Prezime": "Stojanovic",
+    "PunoIme": "Mladen Stojanovic",
+    "BrojTelefona": "0647057465",
+    "EPosta": "maki91@gmail.com",
+    "Adresa": "Metohijska 1,Bor",
+    "JeOmiljeni": true,
+    "ImgPutanja": null
+  },
+  {
+    "Id": "ada9cf76-46e1-4c3e-beb1-84161b326541",
+    "Ime": "Petar ",
+    "Prezime": "Petrovic",
+    "PunoIme": "Petar Petrovic",
+    "BrojTelefona": "0634287435",
+    "EPosta": "ppetrovic@gmail.com",
+    "Adresa": "Stanoja Bunusevca 30,Nis",
+    "JeOmiljeni": false,
+    "ImgPutanja": null
+  },
+  {
+    "Id": "84d27218-4743-4a33-bc21-24bf95ee90f9",
+    "Ime": "Jelena ",
+    "Prezime": "Nikolic",
+    "PunoIme": "Jelena Nikolic",
+    "BrojTelefona": "0627324621",
+    "EPosta": "nikolicjelena@live.com",
+    "Adresa": "Strazilovska 12,Novi Sad",
+    "JeOmiljeni": false,
+    "ImgPutanja": null
+  }
+]
